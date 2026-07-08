@@ -461,12 +461,16 @@ CREATE_SPLIT_ARCHIVES() {
 
 # 获取 ELAINA 补丁版本
 PATCH_VERSIONS() {
-    local OWNER="elaina-al"
-    local REPO="AL"
+    echo "正在获取补丁版本号..."
+    local VERSION_FILE="versions.txt"
     
-    echo "正在获取补丁版本号(Tag)..."
-    local API_RESPONSE=$(curl -s "https://api.github.com/repos/${OWNER}/${REPO}/releases/latest")
-    local GET_VERSION=$(echo "${API_RESPONSE}" | jq -r '.tag_name')
+    # 检查版本文件是否存在
+    if [ ! -f "${VERSION_FILE}" ]; then
+        echo "错误：未找到版本文件 ${VERSION_FILE}！"
+        exit 1
+    fi
+    
+    local GET_VERSION=$(cat "${VERSION_FILE}" | xargs)
     
     echo "ELAINA_VERSION=${GET_VERSION}" >> "${GITHUB_ENV}"
     echo "成功获取补丁版本: ${GET_VERSION}"
