@@ -133,3 +133,4 @@
 * [4pii4/PiePerseus](https://github.com/4pii4/PiePerseus)
 * [Chtholly344/Azurlane-Build](https://github.com/Chtholly344/Azurlane-Build)
 * [L-JINBIN/MTDataFilesProvider](https://github.com/L-JINBIN/MTDataFilesProvider)
+* [ElainaAL](https://github.com/ElainaAL/ElainaAL)
